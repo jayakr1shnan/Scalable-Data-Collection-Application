@@ -54,7 +54,7 @@ app.get('/search', (req, res) => {
 app.post('/search', async (req, res) => {
   const { attribute, value } = req.body;
 
-  const sql = SELECT * FROM students WHERE ${attribute} = ?;
+  const sql = `SELECT * FROM students WHERE ${attribute} = ?`;
   const values = [value];
 
   try {
@@ -124,5 +124,8 @@ process.on('unhandledRejection', (reason, promise) => {
 });
 
 app.listen(port, '0.0.0.0', () => {
-  console.log(Server running on port ${port});
+  console.log(`Server running on port ${port}`);
 });
+
+
+
